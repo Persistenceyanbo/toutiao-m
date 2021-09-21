@@ -18,22 +18,21 @@
         v-model="user.code"
         icon-prefix="toutiao"
         clearable
-        left-icon="验证码"
+        left-icon="yanzhengma"
         placeholder="请输入密码"
       >
         <template #button>
-          <van-button class="send-btn" size="small" round
-            >发送验证码</van-button
-          >
+          <van-button class="send-btn" size="small" round>发送验证码</van-button>
         </template>
       </van-field>
     </van-cell-group>
     <div class="login-btn-wrap">
-      <van-button class="login-btn" type="info" block>登录</van-button>
+      <van-button class="login-btn" type="info" block @click="onLogin">登录</van-button>
     </div>
   </div>
 </template>
 <script>
+import { login } from '../../api/user'
 export default {
   name: 'LoginIndex',
   props: {},
@@ -43,6 +42,17 @@ export default {
         mobile: '',
         code: ''
       }
+    }
+  },
+  methods: {
+    async onLogin () {
+      // 1. 定义请求方法
+
+      // 2. 封装请求方法
+      // 3. 请求调用登录
+      const res = await login(this.user)
+      console.log(res, 'res---------------')
+      // 4. 处理响应结果
     }
   }
 }
