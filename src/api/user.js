@@ -3,12 +3,12 @@
  */
 
 import request from '@/utils/request'
-// 登录
 
+// 登录或者注册
 export const login = data => {
   return request({
     method: 'POST',
-    url: 'v1_0/authorizations',
+    url: '/v1_0/authorizations',
     data
   })
 }
